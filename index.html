@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      var ws =new WebSocket("ws://127.0.0.1:8089/socket/websocket");
+      ws.onmessage=function(data){
+        console.log("message is commint",data)
+      } 
+      ws.onerror=function(error){
+        console.log("some error is heppen",error)
+      };
+      ws.onopen=function(){
+        ws.send(JSON.stringify({        
+            topic: 'room:1',
+            event: 'phx_join',
+            payload: {},
+            ref: 0
+          }));
+          console.log("is opening")
+      }    
+    </script>
+</body>
+</html>

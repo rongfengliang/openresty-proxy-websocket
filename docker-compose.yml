@@ -1,0 +1,9 @@
+version: '3.2'
+services:
+  ws1:
+    build: .
+    hostname: ws
+    ports:
+      - 8089:80
+
+  
